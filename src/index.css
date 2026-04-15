@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-app-bg: #f4f5f9;
+  --color-app-card: #ffffff;
+  --color-app-accent: #ff6b6b;
+  --color-app-accent-hover: #fa5252;
+  --color-app-text: #1f2937;
+  --color-app-text-muted: #9ca3af;
+}
+
+body {
+  background-color: var(--color-app-bg);
+  color: var(--color-app-text);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+

@@ -12,7 +12,7 @@ interface IngredientSelectProps {
 export function IngredientSelect({ value, onChange, className, placeholder = "Select ingredient..." }: IngredientSelectProps) {
   // Check if the current value is a known ingredient
   const isKnown = INGREDIENTS.some(i => i.name === value || i.id === value);
-  const [isCustom, setIsCustom] = useState(!isKnown && value !== '');
+  const [isCustom, setIsCustom] = useState(!isKnown && value !== '')
 
   // Group ingredients by category
   const grouped = INGREDIENTS.reduce((acc, ing) => {
@@ -23,13 +23,13 @@ export function IngredientSelect({ value, onChange, className, placeholder = "Se
 
   if (isCustom) {
     return (
-      <div className="relative flex items-center w-full">
+      <div className="relative flex items-center flex-1 min-w-0">
         <input 
           type="text" 
           value={value} 
           onChange={e => onChange(e.target.value)} 
           placeholder="Custom ingredient..."
-          className={className}
+          className={`${className} w-full`}
           autoFocus
         />
         <button 
@@ -44,7 +44,7 @@ export function IngredientSelect({ value, onChange, className, placeholder = "Se
   }
 
   return (
-    <div className="relative w-full">
+    <div className="relative flex-1 min-w-0">
       <select 
         value={value} 
         onChange={e => {
@@ -55,7 +55,7 @@ export function IngredientSelect({ value, onChange, className, placeholder = "Se
             onChange(e.target.value);
           }
         }}
-        className={`${className} appearance-none pr-8`}
+        className={`${className} w-full appearance-none pr-8`}
       >
         <option value="" disabled>{placeholder}</option>
         {Object.entries(grouped).map(([category, items]) => (

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { Home, Calculator, Timer, BookOpen } from 'lucide-react';
+import { Home, Calculator, Timer, BookOpen, User } from 'lucide-react';
 import { HomeScreen } from './screens/HomeScreen';
 import { IngredientConverter } from './screens/IngredientConverter';
 import { RecipeScaler } from './screens/RecipeScaler';
@@ -11,8 +11,10 @@ import { OvenTempConverter } from './screens/OvenTempConverter';
 import { LevainCalculator } from './screens/LevainCalculator';
 import { TimersScreen } from './screens/TimersScreen';
 import { RecipesScreen } from './screens/RecipesScreen';
+import { ProfileScreen } from './screens/ProfileScreen';
 import { TimerProvider } from './lib/TimerContext';
-import { RecipeProvider, Recipe } from './lib/RecipeContext';
+import { RecipeProvider } from './lib/RecipeContext';
+import { Recipe } from './lib/RecipeContext';
 import { cn } from './lib/utils';
 
 export default function App() {
@@ -64,6 +66,7 @@ export default function App() {
     if (activeTab === 'home') return <HomeScreen onNavigate={handleNavigate} />;
     if (activeTab === 'timers') return <TimersScreen />;
     if (activeTab === 'recipes') return <RecipesScreen onScaleRecipe={handleScaleRecipe} />;
+    if (activeTab === 'profile') return <ProfileScreen />;
     
     return null;
   };
@@ -88,7 +91,7 @@ export default function App() {
           </AnimatePresence>
 
           {/* Bottom Navigation */}
-          <div className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-xl border-t border-gray-100 pb-safe pt-2 px-6 pb-6 z-50">
+          <div className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-xl border-t border-gray-100 pb-safe pt-2 px-4 pb-6 z-50">
             <div className="flex justify-between items-center">
               <NavButton 
                 icon={Home} 
@@ -113,6 +116,12 @@ export default function App() {
                 label="Recipes" 
                 isActive={activeTab === 'recipes'} 
                 onClick={() => { setActiveTab('recipes'); setActiveScreen(null); }} 
+              />
+              <NavButton 
+                icon={User} 
+                label="Profile" 
+                isActive={activeTab === 'profile'} 
+                onClick={() => { setActiveTab('profile'); setActiveScreen(null); }} 
               />
             </div>
           </div>

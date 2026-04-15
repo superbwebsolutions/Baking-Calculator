@@ -85,9 +85,9 @@ export function LevainCalculator({ onBack }: { onBack: () => void }) {
         </div>
       </div>
 
-      <div className="bg-blue-50 rounded-2xl p-4 flex gap-3 items-start">
-        <Info className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
-        <p className="text-sm text-blue-800 font-medium leading-relaxed">
+      <div className="bg-gray-50 rounded-2xl p-4 flex gap-3 items-start border border-gray-200">
+        <Info className="w-5 h-5 text-gray-500 shrink-0 mt-0.5" />
+        <p className="text-sm text-gray-600 font-medium leading-relaxed">
           A 1:2:2 ratio means 1 part starter, 2 parts flour, and 2 parts water. Higher ratios (like 1:5:5) take longer to peak, which is useful for overnight builds.
         </p>
       </div>

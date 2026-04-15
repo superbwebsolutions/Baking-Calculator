@@ -91,30 +91,30 @@ export function BakersPercentage({ onBack }: { onBack: () => void }) {
       : '0.0';
 
     return (
-      <div key={ing.id} className="flex items-center px-4 py-2 gap-2 group border-b border-gray-50 last:border-0">
+      <div key={ing.id} className="flex items-center px-4 py-2 gap-2 group border-b border-gray-50 last:border-0 overflow-hidden">
         <IngredientSelect
           value={ing.name}
           onChange={(val) => updateItem(list, ing.id, 'name', val)}
           placeholder="Ingredient Name"
-          className="flex-1 font-semibold text-gray-800 bg-transparent focus:outline-none focus:border-b border-[var(--color-app-accent)]"
+          className="w-full font-semibold text-gray-800 bg-transparent focus:outline-none focus:border-b border-[var(--color-app-accent)] truncate"
         />
         
         <input
           type="number"
           value={ing.weight || ''}
           onChange={(e) => updateItem(list, ing.id, 'weight', Number(e.target.value))}
-          className="w-16 text-right font-bold text-gray-800 bg-gray-100 rounded-lg py-1 px-2 focus:outline-none focus:ring-2 focus:ring-[var(--color-app-accent)]"
+          className="w-16 shrink-0 text-right font-bold text-gray-800 bg-gray-100 rounded-lg py-1 px-2 focus:outline-none focus:ring-2 focus:ring-[var(--color-app-accent)]"
           placeholder="0"
         />
-        <span className="text-xs text-gray-400 w-3">g</span>
+        <span className="text-xs text-gray-400 w-3 shrink-0">g</span>
         
-        <div className="w-16 text-right font-bold text-[var(--color-app-accent)]">
+        <div className="w-14 shrink-0 text-right font-bold text-[var(--color-app-accent)]">
           {percentage}%
         </div>
 
         <button 
           onClick={() => removeItem(list, ing.id)}
-          className="w-6 h-6 flex items-center justify-center text-gray-300 hover:text-red-500 transition-colors ml-1"
+          className="w-6 h-6 shrink-0 flex items-center justify-center text-gray-300 hover:text-red-500 transition-colors ml-1"
         >
           <Trash2 className="w-4 h-4" />
         </button>
@@ -139,14 +139,14 @@ export function BakersPercentage({ onBack }: { onBack: () => void }) {
 
       {/* Load Recipe Dropdown */}
       {recipes.length > 0 && (
-        <div className="mb-4 flex justify-end">
-          <div className="relative">
+        <div className="mb-4 w-full">
+          <div className="relative w-full">
             <select
               onChange={(e) => {
                 handleLoadRecipe(e.target.value);
                 e.target.value = "";
               }}
-              className="appearance-none bg-[var(--color-app-accent)]/10 text-[var(--color-app-accent)] text-sm font-bold py-2 pl-4 pr-10 rounded-xl focus:outline-none"
+              className="w-full appearance-none bg-white border-2 border-gray-800 text-gray-800 text-sm font-bold py-3 pl-4 pr-10 rounded-xl focus:outline-none"
               defaultValue=""
             >
               <option value="" disabled>Load Recipe...</option>
@@ -154,7 +154,7 @@ export function BakersPercentage({ onBack }: { onBack: () => void }) {
                 <option key={r.id} value={r.id}>{r.name}</option>
               ))}
             </select>
-            <BookOpen className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-app-accent)] pointer-events-none" />
+            <BookOpen className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-800 pointer-events-none" />
           </div>
         </div>
       )}

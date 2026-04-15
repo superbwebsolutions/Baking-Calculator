@@ -277,7 +277,7 @@ export function RecipesScreen({ onScaleRecipe }: { onScaleRecipe: (recipe: Recip
                     </button>
                     <button 
                       onClick={(e) => { e.stopPropagation(); onScaleRecipe(recipe); }}
-                      className="flex-1 py-2.5 bg-red-50 text-[var(--color-app-accent)] rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-red-100 transition-colors text-sm"
+                      className="flex-1 py-2.5 bg-gray-50 text-gray-700 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gray-100 transition-colors text-sm"
                     >
                       <Scale className="w-4 h-4" />
                       Scale

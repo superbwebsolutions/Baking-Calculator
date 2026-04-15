@@ -244,7 +244,7 @@ export function RecipeScaler({ onBack, initialRecipe, onNavigateToRecipes }: { o
               }
               e.target.value = "";
             }}
-            className="w-full appearance-none bg-[var(--color-app-accent)]/10 text-[var(--color-app-accent)] text-sm font-bold py-2.5 pl-4 pr-10 rounded-xl focus:outline-none"
+            className="w-full appearance-none bg-white border-2 border-gray-800 text-gray-800 text-sm font-bold py-3 pl-4 pr-10 rounded-xl focus:outline-none"
             defaultValue=""
           >
             <option value="" disabled>Load Recipe...</option>
@@ -253,7 +253,7 @@ export function RecipeScaler({ onBack, initialRecipe, onNavigateToRecipes }: { o
             ))}
             <option value="add_new">+ Add New Recipe</option>
           </select>
-          <BookOpen className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-app-accent)] pointer-events-none" />
+          <BookOpen className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-800 pointer-events-none" />
         </div>
       </div>
 
@@ -271,18 +271,18 @@ export function RecipeScaler({ onBack, initialRecipe, onNavigateToRecipes }: { o
             return (
               <div key={ing.id} className="p-4 flex flex-col gap-3">
                 {/* Input Row */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 overflow-hidden">
                   <input
                     type="number"
                     value={ing.amount}
                     onChange={(e) => updateIngredient(ing.id, 'amount', e.target.value)}
                     placeholder="Qty"
-                    className="w-16 bg-gray-50 rounded-lg py-2 px-2 text-sm font-bold text-gray-800 focus:outline-none focus:ring-2 focus:ring-[var(--color-app-accent)]"
+                    className="w-16 shrink-0 bg-gray-50 rounded-lg py-2 px-2 text-sm font-bold text-gray-800 focus:outline-none focus:ring-2 focus:ring-[var(--color-app-accent)]"
                   />
                   <select
                     value={ing.unit}
                     onChange={(e) => updateIngredient(ing.id, 'unit', e.target.value)}
-                    className="w-24 bg-gray-50 rounded-lg py-2 px-2 text-sm font-medium text-gray-800 focus:outline-none focus:ring-2 focus:ring-[var(--color-app-accent)] appearance-none"
+                    className="w-20 shrink-0 bg-gray-50 rounded-lg py-2 px-2 text-sm font-medium text-gray-800 focus:outline-none focus:ring-2 focus:ring-[var(--color-app-accent)] appearance-none"
                   >
                     {UNITS.map(u => <option key={u.id} value={u.id}>{u.short}</option>)}
                   </select>
@@ -290,11 +290,11 @@ export function RecipeScaler({ onBack, initialRecipe, onNavigateToRecipes }: { o
                     value={ing.name}
                     onChange={(val) => updateIngredient(ing.id, 'name', val)}
                     placeholder="Ingredient Name"
-                    className="flex-1 bg-gray-50 rounded-lg py-2 pl-3 text-sm font-medium text-gray-800 focus:outline-none focus:ring-2 focus:ring-[var(--color-app-accent)]"
+                    className="w-full bg-gray-50 rounded-lg py-2 pl-3 text-sm font-medium text-gray-800 focus:outline-none focus:ring-2 focus:ring-[var(--color-app-accent)] truncate"
                   />
                   <button 
                     onClick={() => removeIngredient(ing.id)}
-                    className="p-2 text-gray-300 hover:text-red-500 transition-colors"
+                    className="p-2 shrink-0 text-gray-300 hover:text-red-500 transition-colors"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>

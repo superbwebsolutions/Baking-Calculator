@@ -1,0 +1,86 @@
+{
+  "expo": {
+    "scheme": "bakingutility",
+    "icon": "./assets/icon.png",
+    "plugins": [
+      "expo-router",
+      "expo-dev-client",
+      [
+        "expo-notifications",
+        {
+          "sounds": [
+            "./assets/sounds/timer_alarm.wav"
+          ]
+        }
+      ],
+      [
+        "expo-widgets",
+        {
+          "widgets": [
+            {
+              "name": "DDTWidget",
+              "displayName": "Bake-It",
+              "description": "Interactive baking tools for your Home Screen.",
+              "supportedFamilies": [
+                "systemLarge"
+              ]
+            }
+          ]
+        }
+      ],
+      "./plugins/setWidgetDeploymentTarget"
+    ],
+    "name": "Bake-It",
+    "slug": "baking-utility-native",
+    "ios": {
+      "buildNumber": "3",
+      "icon": "./assets/icon.png",
+      "bundleIdentifier": "com.bakeit.utility",
+      "supportsTablet": true,
+      "deploymentTarget": "17.0",
+      "entitlements": {
+        "com.apple.security.application-groups": [
+          "group.com.bakeit.utility"
+        ]
+      },
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "build": {
+          "experimental": {
+            "ios": {
+              "appExtensions": [
+                {
+                  "targetName": "ExpoWidgetsTarget",
+                  "bundleIdentifier": "com.bakeit.utility.ExpoWidgetsTarget",
+                  "entitlements": {
+                    "com.apple.security.application-groups": [
+                      "group.com.bakeit.utility"
+                    ]
+                  }
+                },
+                {
+                  "targetName": "ExpoWidgetsTarget",
+                  "bundleIdentifier": "com.bakeit.utility.ExpoWidgetsTarget",
+                  "entitlements": {
+                    "com.apple.security.application-groups": [
+                      "group.com.bakeit.utility"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "projectId": "23153614-8407-4a01-9c6d-0cee6dafaeb7"
+      }
+    },
+    "android": {
+      "package": "com.bakeit.utility"
+    }
+  }
+}

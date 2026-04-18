@@ -1,0 +1,48 @@
+{
+  "name": "baking-calculator-native",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web",
+    "deploy": "npx expo export -p web && npx eas-cli@latest deploy",
+    "typecheck": "tsc --noEmit",
+    "postinstall": "node scripts/patch-widgets.js"
+  },
+  "dependencies": {
+    "@expo/dom-webview": "^55.0.5",
+    "@expo/metro-runtime": "^55.0.9",
+    "@expo/ui": "^55.0.11",
+    "expo": "^55.0.15",
+    "expo-audio": "~55.0.13",
+    "expo-constants": "^55.0.14",
+    "expo-dev-client": "^55.0.27",
+    "expo-haptics": "~55.0.14",
+    "expo-image": "^55.0.8",
+    "expo-notifications": "^55.0.19",
+    "expo-router": "^55.0.12",
+    "expo-sqlite": "^55.0.15",
+    "expo-symbols": "^55.0.7",
+    "expo-widgets": "^55.0.13",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-native": "^0.83.4",
+    "react-native-gesture-handler": "~2.30.0",
+    "react-native-worklets": "0.7.0",
+    "react-native-reanimated": "4.2.1",
+    "react-native-safe-area-context": "~5.6.2",
+    "react-native-screens": "~4.23.0",
+    "react-native-web": "^0.21.0",
+    "react-native-webview": "^13.16.0"
+  },
+  "overrides": {
+    "react-native-worklets": "0.7.0"
+  },
+  "private": true,
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "typescript": "^5.9.3"
+  }
+}
